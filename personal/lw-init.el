@@ -17,6 +17,24 @@
 ;;; enable colortheme
 (autoload 'color-theme-sanityinc-tomorrow-night "color-theme-sanityinc-tomorrow" " \(fn)" t nil)
 
+
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'")
+        ("django"    . "\\.inc\\'"))
+)
+(defun web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
+  (setq web-mode-indent-style 4)
+  )
+(add-hook 'web-mode-hook  'web-mode-hook)
+
+
 ;; kill current buffer
 (defun yic-kill-current-buffer ()
   (interactive)
@@ -59,7 +77,7 @@ region\) apply comment-or-uncomment to the current line"
 
 ;;; enable linum-mode global
 (global-linum-mode 1)
-(scroll-bar-mode nil)
+(scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
 (setq ido-enable-flex-matching t)
 (setq ido-auto-merge-work-directories-length -1)
