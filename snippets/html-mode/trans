@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: pyLemon <leeway1985@gmail.com>
+# group: django
+# name : {% trans "" %}
+# --
+{% trans "${1:content}" %}
