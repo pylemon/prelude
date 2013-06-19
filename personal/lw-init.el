@@ -66,6 +66,8 @@ region\) apply comment-or-uncomment to the current line"
 ;;; enable linum-mode global
 (global-linum-mode 1)
 (scroll-bar-mode 0)
+(global-whitespace-mode 1)
+(setq whitespace-line-column 110)
 
 (global-hl-line-mode 0)
 (set-face-background hl-line-face "gray10")
@@ -91,8 +93,7 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-<return>") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-M-m") 'mc/mark-more-like-this-extended)
 (add-hook 'python-mode-hook
-          (lambda ()
-            (define-key python-mode-map (kbd "<returen>") 'prelude-smart-open-line)))
+          (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ;;; lambda shows in one char
 (require 'lambda-mode)
