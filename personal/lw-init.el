@@ -14,11 +14,6 @@
                               edit-server
                               web-mode))
 
-;;; enable colortheme
-(autoload 'color-theme-sanityinc-tomorrow-night "color-theme-sanityinc-tomorrow" " \(fn)" t nil)
-
-
-
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
@@ -63,12 +58,6 @@ region\) apply comment-or-uncomment to the current line"
   (highlight-lines-matching-regexp "ipdb.set_trace()"))
 (add-hook 'python-mode-hook 'annotate-pdb)
 
-(defun python-add-breakpoint ()
-  (interactive)
-  (newline-and-indent)
-  (insert "import ipdb; ipdb.set_trace()"))
-(global-set-key (kbd "<f12>") 'python-add-breakpoint)
-
 
 ;;; po mode for editing po files.
 (require 'po-mode)
@@ -79,6 +68,7 @@ region\) apply comment-or-uncomment to the current line"
 (global-linum-mode 1)
 (scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
+(set-face-foreground hl-line-face "#ac9")
 (setq ido-enable-flex-matching t)
 (setq ido-auto-merge-work-directories-length -1)
 
@@ -98,7 +88,7 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-\\") nil)
 (global-set-key (kbd "C-<return>") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-M-m") 'mc/mark-more-like-this-extended)
-
+(mc/execute-command-for-all-fake-cursors mc/mark-more-like-this-extended)
 
 ;;; lambda shows in one char
 (require 'lambda-mode)
@@ -109,6 +99,7 @@ region\) apply comment-or-uncomment to the current line"
 
 (require 'smart-mode-line)
 (add-hook 'after-init-hook 'sml/setup)
+
 
 (provide 'lw-init)
 ;;; lw-init.el ends here
