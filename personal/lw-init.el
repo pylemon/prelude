@@ -67,8 +67,11 @@ region\) apply comment-or-uncomment to the current line"
 ;;; enable linum-mode global
 (global-linum-mode 1)
 (scroll-bar-mode 0)
+
+(global-hl-line-mode 0)
 (set-face-background hl-line-face "gray10")
-(set-face-foreground hl-line-face "#ac9")
+(set-face-foreground hl-line-face "white")
+
 (setq ido-enable-flex-matching t)
 (setq ido-auto-merge-work-directories-length -1)
 
@@ -88,7 +91,10 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-\\") nil)
 (global-set-key (kbd "C-<return>") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-M-m") 'mc/mark-more-like-this-extended)
-(mc/execute-command-for-all-fake-cursors mc/mark-more-like-this-extended)
+;; (mc/execute-command-for-all-fake-cursors mc/mark-more-like-this-extended)
+(add-hook 'python-mode-hook
+          (lambda ()
+            (define-key python-mode-map (kbd "<returen>") 'prelude-smart-open-line)))
 
 ;;; lambda shows in one char
 (require 'lambda-mode)
