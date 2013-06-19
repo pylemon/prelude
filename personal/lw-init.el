@@ -58,7 +58,6 @@ region\) apply comment-or-uncomment to the current line"
   (highlight-lines-matching-regexp "ipdb.set_trace()"))
 (add-hook 'python-mode-hook 'annotate-pdb)
 
-
 ;;; po mode for editing po files.
 (require 'po-mode)
 (add-to-list 'auto-mode-alist '("\\.po$" . po-mode))
@@ -91,7 +90,6 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-\\") nil)
 (global-set-key (kbd "C-<return>") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-M-m") 'mc/mark-more-like-this-extended)
-;; (mc/execute-command-for-all-fake-cursors mc/mark-more-like-this-extended)
 (add-hook 'python-mode-hook
           (lambda ()
             (define-key python-mode-map (kbd "<returen>") 'prelude-smart-open-line)))
