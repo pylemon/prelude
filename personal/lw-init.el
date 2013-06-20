@@ -77,6 +77,11 @@ region\) apply comment-or-uncomment to the current line"
 (setq ido-auto-merge-work-directories-length -1)
 
 
+;;; make google-chrome the default browser for emacs
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+
+
 ;; bookmark location
 (setq bookmark-default-file "~/Dropbox/software_configs/bookmarks" bookmark-save-flag 1)
 
