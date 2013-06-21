@@ -7,9 +7,9 @@
 (setq prelude-guru nil)
 (setq prelude-clean-whitespace-on-save nil)
 
-(prelude-ensure-module-deps '(smart-mode-line 
-                              color-theme-sanityinc-tomorrow 
-                              multiple-cursors 
+(prelude-ensure-module-deps '(smart-mode-line
+                              color-theme-sanityinc-tomorrow
+                              multiple-cursors
                               edit-server
                               web-mode))
 
@@ -64,6 +64,8 @@ region\) apply comment-or-uncomment to the current line"
 
 ;;; enable linum-mode global
 (global-linum-mode 1)
+;;; disable prelude-global-mode
+(define-globalized-minor-mode prelude-global-mode prelude-mode prelude-off)
 (scroll-bar-mode 0)
 
 ;;; whitespace mode will override syntax highlighting
@@ -87,7 +89,7 @@ region\) apply comment-or-uncomment to the current line"
 (setq bookmark-default-file "~/Dropbox/software_configs/bookmarks" bookmark-save-flag 1)
 
 
-;;; keybindings
+;;; key bindings
 (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
 (global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
@@ -96,6 +98,9 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-x 3") 'split-window-vertically)
 (global-set-key (kbd "C-x C-x") 'ido-switch-buffer)
 (global-set-key (kbd "C-\\") nil)
+;;; disable move window key bindings
+(global-set-key (kbd "S-<down>") nil)
+(global-set-key (kbd "S-<up>") nil)
 (global-set-key (kbd "C-<return>") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-M-m") 'mc/mark-more-like-this-extended)
 (add-hook 'python-mode-hook
