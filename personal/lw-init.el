@@ -4,7 +4,6 @@
 ;;; Code:
 ;;; prelude overwrote
 (disable-theme 'zenburn)
-(setq prelude-flyspell nil)
 (setq prelude-guru nil)
 (setq prelude-clean-whitespace-on-save nil)
 
@@ -66,8 +65,10 @@ region\) apply comment-or-uncomment to the current line"
 ;;; enable linum-mode global
 (global-linum-mode 1)
 (scroll-bar-mode 0)
-(global-whitespace-mode 1)
-(setq whitespace-line-column 110)
+
+;;; whitespace mode will override syntax highlighting
+;; (global-whitespace-mode 1)
+;; (setq whitespace-line-column 110)
 
 (global-hl-line-mode 0)
 (set-face-background hl-line-face "gray10")

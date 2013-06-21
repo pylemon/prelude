@@ -5,5 +5,10 @@
       '(
         backward-kill-sexp
         prelude-move-beginning-of-line
+        python-indent-dedent-line-backspace
         smex
+        ))
+
+(setq mc/cmds-to-run-once
+      '(
         ))
