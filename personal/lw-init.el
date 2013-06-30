@@ -27,7 +27,14 @@
   (setq web-mode-css-indent-offset 4)
   (setq web-mode-indent-style 4)
   )
-(add-hook 'web-mode-hook  'web-mode-hook)
+(add-hook 'web-mode-hook 'web-mode-hook)
+
+(defun yas-web-mode-fix ()
+  (if (string= major-mode "web-mode")
+      (progn
+        (web-mode-buffer-refresh)
+        (indent-for-tab-command))))
+(setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
 
 
 ;; kill current buffer
