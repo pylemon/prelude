@@ -5,6 +5,7 @@
 ;;; prelude overwrote
 (disable-theme 'zenburn)
 (setq prelude-guru nil)
+(setq prelude-whitespace nil)
 (setq prelude-clean-whitespace-on-save nil)
 
 (prelude-ensure-module-deps '(smart-mode-line
@@ -64,21 +65,23 @@ region\) apply comment-or-uncomment to the current line"
 
 ;;; enable linum-mode global
 (global-linum-mode 1)
+
 ;;; disable prelude-global-mode
 (define-globalized-minor-mode prelude-global-mode prelude-mode prelude-off)
-(scroll-bar-mode 0)
+(setq prelude-flyspell nil)
 
 ;;; whitespace mode will override syntax highlighting
 ;; (global-whitespace-mode 1)
-;; (setq whitespace-line-column 110)
+(setq whitespace-line-column 110)
 
 (global-hl-line-mode 0)
+(global-flycheck-mode 0)
+(scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
 (set-face-foreground hl-line-face "white")
 
 (setq ido-enable-flex-matching t)
 (setq ido-auto-merge-work-directories-length -1)
-
 
 ;;; make google-chrome the default browser for emacs
 (setq browse-url-browser-function 'browse-url-generic
@@ -105,6 +108,13 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-M-m") 'mc/mark-more-like-this-extended)
 (add-hook 'python-mode-hook
           (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+
+(autoload 'pylint "pylint")
+(add-hook 'python-mode-hook 'pylint-add-menu-items)
+(add-hook 'python-mode-hook 'pylint-add-key-bindings)
+
+(key-chord-define-global "wq" 'whitespace-cleanup)
+
 
 ;;; lambda shows in one char
 (require 'lambda-mode)

@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         backward-kill-sexp
+        kill-region
         prelude-move-beginning-of-line
         python-indent-dedent-line-backspace
         smex
