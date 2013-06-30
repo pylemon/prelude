@@ -76,6 +76,7 @@ region\) apply comment-or-uncomment to the current line"
 
 (global-hl-line-mode 0)
 (global-flycheck-mode 0)
+(yas-global-mode 1)
 (scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
 (set-face-foreground hl-line-face "white")
