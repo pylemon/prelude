@@ -8,6 +8,8 @@
         prelude-move-beginning-of-line
         python-indent-dedent-line-backspace
         smex
+        sp--self-insert-command
+        sp-backward-down-sexp
         ))
 
 (setq mc/cmds-to-run-once

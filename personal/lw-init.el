@@ -104,6 +104,8 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
 (global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
+(global-set-key (kbd "C-<left>") 'left-word)
+(global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-c q") 'join-line)
 (global-set-key (kbd "C-x 2") 'split-window-horizontally)
 (global-set-key (kbd "C-x 3") 'split-window-vertically)
