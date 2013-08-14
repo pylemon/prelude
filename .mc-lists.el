@@ -6,6 +6,7 @@
         backward-kill-sexp
         kill-region
         prelude-move-beginning-of-line
+        python-backspace
         python-indent-dedent-line-backspace
         smex
         sp--self-insert-command

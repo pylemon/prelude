@@ -83,6 +83,7 @@ region\) apply comment-or-uncomment to the current line"
 
 (global-hl-line-mode 0)
 (global-flycheck-mode 0)
+(smartparens-global-mode 0)
 (yas-global-mode 1)
 (scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
@@ -101,6 +102,7 @@ region\) apply comment-or-uncomment to the current line"
 
 
 ;;; key bindings
+(global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-<backspace>") 'backward-kill-word)
 (global-set-key (kbd "M-<backspace>") 'backward-kill-sexp)
