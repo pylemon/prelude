@@ -83,6 +83,10 @@ region\) apply comment-or-uncomment to the current line"
 
 (global-hl-line-mode 0)
 (global-flycheck-mode 0)
+
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
 (smartparens-global-mode 0)
 (yas-global-mode 1)
 (scroll-bar-mode 0)
@@ -96,10 +100,12 @@ region\) apply comment-or-uncomment to the current line"
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
 
+;;; jedi for python mode
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 
 ;; bookmark location
 (setq bookmark-default-file "~/Dropbox/software_configs/bookmarks" bookmark-save-flag 1)
-
 
 ;;; key bindings
 (global-set-key (kbd "C-z") 'undo)
@@ -126,7 +132,6 @@ region\) apply comment-or-uncomment to the current line"
 (add-hook 'python-mode-hook 'pylint-add-key-bindings)
 
 (key-chord-define-global "wq" 'whitespace-cleanup)
-
 
 ;;; lambda shows in one char
 (require 'lambda-mode)
