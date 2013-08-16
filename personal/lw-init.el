@@ -96,6 +96,22 @@ region\) apply comment-or-uncomment to the current line"
 (setq ido-enable-flex-matching t)
 (setq ido-auto-merge-work-directories-length -1)
 
+;;; sort ido filelist by mtime instead of alphabetically
+(add-hook 'ido-make-file-list-hook 'ido-sort-mtime)
+(add-hook 'ido-make-dir-list-hook 'ido-sort-mtime)
+(defun ido-sort-mtime ()
+  (setq ido-temp-list
+        (sort ido-temp-list
+              (lambda (a b)
+                (time-less-p
+                 (sixth (file-attributes (concat ido-current-directory b)))
+                 (sixth (file-attributes (concat ido-current-directory a)))))))
+  (ido-to-end  ;; move . files to end (again)
+   (delq nil (mapcar
+              (lambda (x) (and (char-equal (string-to-char x) ?.) x))
+              ido-temp-list))))
+
+
 ;;; make google-chrome the default browser for emacs
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
@@ -115,9 +131,11 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-c q") 'join-line)
+(global-set-key (kbd "C-x j") 'helm-imenu)
 (global-set-key (kbd "C-x 2") 'split-window-horizontally)
 (global-set-key (kbd "C-x 3") 'split-window-vertically)
-(global-set-key (kbd "C-x C-x") 'ido-switch-buffer)
+(global-set-key (kbd "C-x C-x") 'helm-buffers-list)
+
 (global-set-key (kbd "C-\\") nil)
 ;;; disable move window key bindings
 (global-set-key (kbd "S-<down>") nil)
