@@ -11,7 +11,6 @@
 (prelude-ensure-module-deps '(smart-mode-line
                               color-theme-sanityinc-tomorrow
                               multiple-cursors
-                              edit-server
                               web-mode))
 
 (require 'web-mode)
@@ -70,8 +69,6 @@ region\) apply comment-or-uncomment to the current line"
 (add-to-list 'auto-mode-alist '("\\.po$" . po-mode))
 
 
-;;; enable linum-mode global
-(global-linum-mode 1)
 
 ;;; disable prelude-global-mode
 (define-globalized-minor-mode prelude-global-mode prelude-mode prelude-off)
@@ -83,6 +80,7 @@ region\) apply comment-or-uncomment to the current line"
 
 (global-hl-line-mode 0)
 (global-flycheck-mode 0)
+(global-linum-mode 1)
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -131,10 +129,13 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-c q") 'join-line)
-(global-set-key (kbd "C-x j") 'helm-imenu)
+(global-set-key (kbd "C-x j") 'helm-occur)
+(global-set-key (kbd "C-x C-j") 'helm-imenu)
+(global-set-key (kbd "C-x f") 'helm-prelude)
 (global-set-key (kbd "C-x 2") 'split-window-horizontally)
 (global-set-key (kbd "C-x 3") 'split-window-vertically)
 (global-set-key (kbd "C-x C-x") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-r") 'helm-bookmarks)
 
 (global-set-key (kbd "C-\\") nil)
 ;;; disable move window key bindings
