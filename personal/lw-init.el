@@ -14,6 +14,7 @@
                               web-mode))
 
 (require 'web-mode)
+(require 'python)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
 (setq web-mode-engines-alist
@@ -81,12 +82,14 @@ region\) apply comment-or-uncomment to the current line"
 (global-hl-line-mode 0)
 (global-flycheck-mode 0)
 (global-linum-mode 1)
-
+(menu-bar-mode 1)
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(setq ac-delay 0.1)
 
 (smartparens-global-mode 0)
 (yas-global-mode 1)
+(setq mouse-autoselect-window t)
 (scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
 (set-face-foreground hl-line-face "white")
@@ -129,12 +132,12 @@ region\) apply comment-or-uncomment to the current line"
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-c q") 'join-line)
-(global-set-key (kbd "C-x j") 'helm-occur)
-(global-set-key (kbd "C-x C-j") 'helm-imenu)
+(global-set-key (kbd "C-x j") 'helm-imenu)
 (global-set-key (kbd "C-x f") 'helm-prelude)
 (global-set-key (kbd "C-x 2") 'split-window-horizontally)
 (global-set-key (kbd "C-x 3") 'split-window-vertically)
 (global-set-key (kbd "C-x C-x") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-o") 'other-frame)
 (global-set-key (kbd "C-x C-r") 'helm-bookmarks)
 
 (global-set-key (kbd "C-\\") nil)

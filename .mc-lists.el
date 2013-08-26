@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         backward-kill-sexp
+        jedi:dot-complete
         kill-region
         prelude-move-beginning-of-line
         python-backspace

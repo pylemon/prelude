@@ -10,7 +10,8 @@
  '(helm-full-frame nil)
  '(helm-split-window-default-side (quote right))
  '(mediawiki-site-alist (quote (("dhero" "http://114.80.201.200:800/" "leeway" "" "Main Page"))))
- '(safe-local-variable-values (quote ((python-shell-virtualenv-path . "/opt/venvs/p27_d13_dh") (python-shell-extra-pythonpaths "/home/liwei/work/dhero") (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
+ '(mediawiki-site-default "dhero")
+ '(safe-local-variable-values (quote ((python-shell-extra-pythonpaths "/home/liwei/dhero") (python-shell-interpreter-args . "/home/liwei/dhero/dowant/manage.py shell_plus") (python-shell-interpreter . "ipython") (python-shell-extra-pythonpaths "/home/liwei/dhero/dowant") (python-shell-interpreter-args . "/home/liwei/dhero/dowant/manage.py shell") (python-shell-virtualenv-path . "/opt/venvs/p27_d13_dh") (python-shell-extra-pythonpaths "/home/liwei/work/dhero") (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
 ") (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
 ") (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion") (python-shell-prompt-output-regexp . "Out\\[[0-9]+\\]: ") (python-shell-prompt-regexp . "In \\[[0-9]+\\]: ") (python-shell-interpreter-args . "/home/liwei/work/dhero/dowant/manage.py shell") (python-shell-interpreter . "python")))))
 (custom-set-faces
@@ -18,5 +19,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:background "nil"))))
  '(helm-source-header ((t (:background "dark magenta" :foreground "white" :weight bold :height 1.1 :family "Sans Serif"))))
  '(py-builtins-face ((t (:foreground "#f99157" :weight light))) t))
