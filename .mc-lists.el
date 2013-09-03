@@ -9,6 +9,7 @@
         prelude-move-beginning-of-line
         python-backspace
         python-indent-dedent-line-backspace
+        sh-assignment
         smex
         sp--self-insert-command
         sp-backward-down-sexp
