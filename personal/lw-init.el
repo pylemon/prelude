@@ -14,13 +14,14 @@
                               web-mode))
 
 (require 'web-mode)
-(require 'python)
+
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
 (setq web-mode-engines-alist
       '(("django"    . "\\.html\\'")
         ("django"    . "\\.inc\\'"))
 )
+
 (defun web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 4)
@@ -83,12 +84,8 @@ region\) apply comment-or-uncomment to the current line"
 (global-flycheck-mode 0)
 (global-linum-mode 1)
 (menu-bar-mode 1)
-(require 'auto-complete)
-(global-auto-complete-mode t)
-(setq ac-delay 0.1)
 
 (smartparens-global-mode 0)
-(yas-global-mode 1)
 (setq mouse-autoselect-window t)
 (scroll-bar-mode 0)
 (set-face-background hl-line-face "gray10")
@@ -118,8 +115,8 @@ region\) apply comment-or-uncomment to the current line"
       browse-url-generic-program "google-chrome")
 
 ;;; jedi for python mode
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)
 
 ;; bookmark location
 (setq bookmark-default-file "~/Dropbox/software_configs/bookmarks" bookmark-save-flag 1)
